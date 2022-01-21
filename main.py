@@ -300,7 +300,7 @@ def log_exam(update, context, exercise=""):
         context.job_queue.run_once(send_message_to_group,
                                    send_time,
                                    context=(GROUP_ID, name, startt, end),
-                                   name="exam_alert")
+                                   name=f"exam_alert_{str(startt)}_{str(end)}")
 
         update.message.reply_text(f"Success! Recorded exam on {date} from {startt} to {end} for {name}.",
                                   reply_markup=reply_markup)
